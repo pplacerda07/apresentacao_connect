@@ -42,9 +42,14 @@ export default function PricingSlide() {
               ))}
             </ul>
             
-            <button className="w-full py-3 px-6 rounded-full border-2 border-dark/10 text-dark font-bold hover:bg-dark/5 transition-colors">
+            <a
+              href="https://wa.me/556793374370?text=Quero%20fechar%20o%20plano%20mensal!"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full py-3 px-6 rounded-full border-2 border-dark/10 text-dark font-bold text-center hover:bg-dark/5 transition-colors"
+            >
               Assinar Mensal
-            </button>
+            </a>
           </motion.div>
 
           {/* Plano Anual */}
@@ -75,9 +80,14 @@ export default function PricingSlide() {
               ))}
             </ul>
 
-            <button className="w-full py-3 px-6 rounded-full bg-orange hover:bg-orange-dark text-white font-bold transition-colors shadow-lg shadow-orange/20">
+            <a
+              href="https://wa.me/556793374370?text=Quero%20fechar%20o%20plano%20anual!"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full py-3 px-6 rounded-full bg-orange hover:bg-orange-dark text-white font-bold text-center transition-colors shadow-lg shadow-orange/20"
+            >
               Assinar Anual
-            </button>
+            </a>
           </motion.div>
         </div>
       </div>

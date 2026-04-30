@@ -29,19 +29,24 @@ export default function CTASlide() {
           Não deixe mais nenhum lead esfriar no seu WhatsApp. A mudança começa hoje.
         </motion.p>
 
-        <motion.button
+        <motion.a
+          href="https://wa.me/556793374370?text=Quero%20contratar%20o%20sistema!"
+          target="_blank"
+          rel="noopener noreferrer"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ type: "spring", damping: 20, stiffness: 100, delay: 0.4 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-orange text-white font-bold text-xl px-10 py-5 rounded-full shadow-2xl shadow-orange/30 hover:bg-orange-dark transition-colors mb-8"
+          className="bg-orange text-white font-bold text-xl px-10 py-5 rounded-full shadow-2xl shadow-orange/30 hover:bg-orange-dark transition-colors mb-8 inline-block"
         >
           Quero meus 15 dias grátis
-        </motion.button>
+        </motion.a>
 
         <motion.a
-          href="#"
+          href="https://wa.me/556793374370?text=Quero%20contratar%20o%20sistema!"
+          target="_blank"
+          rel="noopener noreferrer"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.6 }}

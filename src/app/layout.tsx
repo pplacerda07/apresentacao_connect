@@ -17,6 +17,11 @@ const barlowCondensed = Barlow_Condensed({
 export const metadata: Metadata = {
   title: "ConnectCar System",
   description: "Sistema completo para gestão de revendas de veículos",
+  icons: {
+    icon: "/logodosistema.png",
+    shortcut: "/logodosistema.png",
+    apple: "/logodosistema.png",
+  },
 };
 
 export default function RootLayout({

@@ -94,11 +94,11 @@ export default function HorizontalSlideController({ slides }: SlideControllerPro
       <img
         src="/logodosistema.png"
         alt="ConnectCar System"
+        className="corner-logo"
         style={{
           position: "absolute",
           top: "20px",
           left: "24px",
-          height: "108px",
           width: "auto",
           objectFit: "contain",
           zIndex: 70,
@@ -169,7 +169,7 @@ export default function HorizontalSlideController({ slides }: SlideControllerPro
           }}
           className="absolute inset-0 w-full h-full"
         >
-          <div className="w-full h-full overflow-hidden">
+          <div className="slide-mobile-scale overflow-hidden">
             <ActiveSlide />
           </div>
         </motion.div>
