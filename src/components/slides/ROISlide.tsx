@@ -19,7 +19,7 @@ export default function ROISlide() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="mb-16"
+          className="roi-header mb-16"
         >
           <span className="text-orange font-bold uppercase tracking-widest text-sm mb-4 block">O Cálculo que muda tudo</span>
           <h2 className="font-barlow-condensed font-black text-fluid-h2 text-dark uppercase">
@@ -28,7 +28,7 @@ export default function ROISlide() {
         </motion.div>
 
         <motion.div 
-          className="flex flex-col items-center justify-center py-16 px-6 rounded-3xl bg-dark text-white relative overflow-hidden shadow-2xl shadow-dark/20"
+          className="roi-card flex flex-col items-center justify-center py-16 px-6 rounded-3xl bg-dark text-white relative overflow-hidden shadow-2xl shadow-dark/20"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -41,10 +41,10 @@ export default function ROISlide() {
             </p>
             
             <div className="flex items-end gap-2 text-orange mb-6">
-              <span className="font-barlow-condensed font-black text-[8rem] md:text-[15rem] leading-none tracking-tighter">
+              <span className="roi-number font-barlow-condensed font-black text-[8rem] md:text-[15rem] leading-none tracking-tighter">
                 {startCount ? <CountUp start={0} end={7} duration={3} useEasing /> : "0"}
               </span>
-              <span className="font-barlow-condensed font-black text-6xl md:text-9xl mb-4 md:mb-12">×</span>
+              <span className="roi-multiplier font-barlow-condensed font-black text-6xl md:text-9xl mb-4 md:mb-12">×</span>
             </div>
             
             <p className="text-2xl md:text-3xl tracking-widest uppercase font-bold text-white/90">

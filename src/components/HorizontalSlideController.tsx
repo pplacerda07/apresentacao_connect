@@ -195,7 +195,8 @@ export default function HorizontalSlideController({ slides }: SlideControllerPro
           className="absolute inset-0 w-full h-full"
         >
           <div className="slide-mobile-scale">
-            <div className="min-h-full">
+            <div className="logo-spacer-top" aria-hidden="true" />
+            <div className="slide-content-area">
               <ActiveSlide />
             </div>
           </div>

@@ -52,23 +52,117 @@
     height: 108px;
   }
 
-  /* Wrapper interno dos slides — mobile: scroll vertical livre */
+  /* ─── Estrutura do wrapper de slides ─── */
   .slide-mobile-scale {
     width: 100%;
     height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
   }
 
+  /* Espaçador que empurra o conteúdo abaixo da logo */
+  .logo-spacer-top {
+    flex-shrink: 0;
+    height: 136px; /* desktop: 20px top + 108px logo + 8px gap */
+  }
+
+  /* Área do slide ocupa o restante abaixo da logo */
+  .slide-content-area {
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  /* ─── Mobile: tudo deve caber sem scroll ─── */
   @media (max-width: 640px) {
     .corner-logo {
       height: 36px;
     }
 
-    /* No mobile permite scroll vertical interno ao slide */
-    .slide-mobile-scale {
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
+    .logo-spacer-top {
+      height: 64px; /* 20px top + 36px logo + 8px gap */
+    }
+
+    /* Emoji boxes: de w-64 h-64 para bem menores */
+    .slide-emoji-box {
+      width: 80px !important;
+      height: 80px !important;
+      border-radius: 1.5rem !important;
+      font-size: 2.5rem !important;
+    }
+
+    /* Gap entre ícone e texto nos slides de feature */
+    .slide-feature-row {
+      gap: 1rem !important;
+    }
+
+    /* Badge "Função XX" */
+    .slide-badge {
+      margin-bottom: 0.5rem !important;
+    }
+
+    /* Título dos slides de feature */
+    .slide-feature-title {
+      font-size: 2rem !important;
+      margin-bottom: 0.5rem !important;
+    }
+
+    /* Parágrafo descritivo */
+    .slide-feature-desc {
+      font-size: 0.95rem !important;
+      margin-bottom: 0.75rem !important;
+    }
+
+    /* Cards de feature (cada item da lista) */
+    .slide-feature-card {
+      padding: 0.5rem 0.75rem !important;
+      gap: 0.5rem !important;
+    }
+
+    .slide-feature-card span {
+      font-size: 0.85rem !important;
+    }
+
+    /* Gap entre cards da lista */
+    .slide-features-list {
+      gap: 0.4rem !important;
+    }
+
+    /* ROI Slide: número gigante */
+    .roi-number {
+      font-size: 5rem !important;
+    }
+    .roi-multiplier {
+      font-size: 2.5rem !important;
+      margin-bottom: 0.5rem !important;
+    }
+    .roi-card {
+      padding: 1.5rem 1rem !important;
+    }
+    .roi-header {
+      margin-bottom: 0.75rem !important;
+    }
+
+    /* Pricing Slide */
+    .pricing-header {
+      margin-bottom: 0.75rem !important;
+    }
+    .pricing-cards-row {
+      gap: 0.75rem !important;
+    }
+    .pricing-card {
+      padding: 0.875rem !important;
+    }
+    .pricing-price-area {
+      margin-bottom: 0.5rem !important;
+    }
+    .pricing-price-big {
+      font-size: 2.5rem !important;
+    }
+    .pricing-list {
+      gap: 0.25rem !important;
+      margin-bottom: 0.75rem !important;
     }
   }
 }
