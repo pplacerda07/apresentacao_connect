@@ -64,21 +64,38 @@ export default function HorizontalSlideController({ slides }: SlideControllerPro
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [goToNext, goToPrev]);
 
-  // Touch Swipe navigation
+  // Touch Swipe navigation — suporta gesto horizontal e vertical
+  let touchStartX = 0;
   let touchStartY = 0;
+
   const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX = e.touches[0].clientX;
     touchStartY = e.touches[0].clientY;
   };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
+    const touchEndX = e.changedTouches[0].clientX;
     const touchEndY = e.changedTouches[0].clientY;
-    const diff = touchStartY - touchEndY;
-    
-    if (Math.abs(diff) > 50) {
-      if (diff > 0) goToNext(); // Swipe up = next
-      else goToPrev(); // Swipe down = prev
+    const diffX = touchStartX - touchEndX; // positivo = swipe esquerda
+    const diffY = touchStartY - touchEndY; // positivo = swipe cima
+    const threshold = 40;
+
+    const absX = Math.abs(diffX);
+    const absY = Math.abs(diffY);
+
+    if (absX < threshold && absY < threshold) return;
+
+    if (absX >= absY) {
+      // Gesto horizontal
+      if (diffX > 0) goToNext(); // swipe para esquerda = próximo
+      else goToPrev();            // swipe para direita = anterior
+    } else {
+      // Gesto vertical
+      if (diffY > 0) goToNext(); // swipe para cima = próximo
+      else goToPrev();            // swipe para baixo = anterior
     }
   };
+
 
   const ActiveSlide = slides[currentSlide];
   const progress = ((currentSlide + 1) / totalSlides) * 100;
