@@ -86,15 +86,23 @@ export default function HorizontalSlideController({ slides }: SlideControllerPro
     if (absX < threshold && absY < threshold) return;
 
     if (absX >= absY) {
-      // Gesto horizontal
+      // Gesto horizontal — sempre navega entre slides
       if (diffX > 0) goToNext(); // swipe para esquerda = próximo
       else goToPrev();            // swipe para direita = anterior
     } else {
-      // Gesto vertical
-      if (diffY > 0) goToNext(); // swipe para cima = próximo
-      else goToPrev();            // swipe para baixo = anterior
+      // Gesto vertical — só navega se o conteúdo interno não tem mais scroll
+      const scrollable = e.currentTarget.querySelector(".slide-mobile-scale");
+      if (scrollable) {
+        const atTop = scrollable.scrollTop <= 0;
+        const atBottom = scrollable.scrollTop + scrollable.clientHeight >= scrollable.scrollHeight - 2;
+        if (diffY > 0 && !atBottom) return; // ainda tem conteúdo abaixo
+        if (diffY < 0 && !atTop) return;    // ainda tem conteúdo acima
+      }
+      if (diffY > 0) goToNext();
+      else goToPrev();
     }
   };
+
 
 
   const ActiveSlide = slides[currentSlide];
@@ -186,8 +194,10 @@ export default function HorizontalSlideController({ slides }: SlideControllerPro
           }}
           className="absolute inset-0 w-full h-full"
         >
-          <div className="slide-mobile-scale overflow-hidden">
-            <ActiveSlide />
+          <div className="slide-mobile-scale">
+            <div className="min-h-full">
+              <ActiveSlide />
+            </div>
           </div>
         </motion.div>
       </AnimatePresence>
